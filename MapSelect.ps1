@@ -1365,8 +1365,9 @@ Add-Type -AssemblyName System.Windows.Forms
 
 $Form                            = New-Object system.Windows.Forms.Form
 $Form.ClientSize                 = New-Object System.Drawing.Point(620,910)
-$Form.text                       = "Form"
+$form.text                       = "MCC Map Selector"
 $Form.minimumSize                = New-Object System.Drawing.Size(620,910)
+#$form.BackColor                  = [System.Drawing.ColorTranslator]::FromHtml("#adadad")
 $form.Add_Resize({ resize_form })
 
 $Pannel_Top                          = New-Object system.Windows.Forms.Panel
@@ -1381,7 +1382,7 @@ $Change_Game.width               = 150
 $Change_Game.height              = 30
 $Change_Game.Text                = "Select Game"
 $Change_Game.location            = New-Object System.Drawing.Point(10,11)
-$Change_Game.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$Change_Game.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',13)
 $Change_Game.Items.Add("Halo Reach") | Out-Null
 $Change_Game.Items.Add("Halo 2A") | Out-Null
 $Change_Game.Items.Add("Halo 3") | Out-Null
@@ -1394,6 +1395,9 @@ $Move_Stuff.width                = 150
 $Move_Stuff.height               = 30
 $Move_Stuff.location             = New-Object System.Drawing.Point(160,10)
 $Move_Stuff.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$Move_Stuff.BackColor            = [System.Drawing.ColorTranslator]::FromHtml("#292D2B")
+$Move_Stuff.ForeColor            = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Move_Stuff.FlatStyle            = [System.Windows.Forms.FlatStyle]::Flat
 $Move_Stuff.Add_Click({ f_move_stuff })
 
 $Next_Map                        = New-Object system.Windows.Forms.Button
@@ -1403,6 +1407,9 @@ $Next_Map.height                 = 30
 $Next_Map.Visible                = $false
 $Next_Map.location               = New-Object System.Drawing.Point(310,10)
 $Next_Map.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$Next_Map.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#292D2B")
+$Next_Map.ForeColor              = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Next_Map.FlatStyle              = [System.Windows.Forms.FlatStyle]::Flat
 $Next_Map.Add_Click({ add_map $null $true })
 
 $Next_Game                       = New-Object system.Windows.Forms.Button
@@ -1412,6 +1419,9 @@ $Next_Game.height                = 30
 $Next_Game.Visible               = $false
 $Next_Game.location              = New-Object System.Drawing.Point(460,10)
 $Next_Game.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$Next_Game.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#292D2B")
+$Next_Game.ForeColor             = [System.Drawing.ColorTranslator]::FromHtml("#ffffff")
+$Next_Game.FlatStyle             = [System.Windows.Forms.FlatStyle]::Flat
 $Next_Game.Add_Click({ add_game $null $true })
 
 $Menu_Bar = @($Change_Game,$Move_Stuff,$Next_Map,$Next_Game,$Pannel_Top)
@@ -1437,10 +1447,11 @@ $Label1.BackColor                = [System.Drawing.ColorTranslator]::FromHtml("#
 $Clear_Map                       = New-Object system.Windows.Forms.Button
 $Clear_Map.text                  = "X"
 $Clear_Map.width                 = 50
-$Clear_Map.height                = 51
+$Clear_Map.height                = 50
 $Clear_Map.location              = New-Object System.Drawing.Point(10,69)
 $Clear_Map.Font                  = New-Object System.Drawing.Font('Microsoft Sans Serif',16)
 $Clear_Map.BackColor             = [System.Drawing.ColorTranslator]::FromHtml("#ff0000")
+$Clear_Map.FlatStyle             = [System.Windows.Forms.FlatStyle]::Flat
 $Clear_Map.Add_Click({ f_clear_map })
 
 $Text_Map                        = New-Object system.Windows.Forms.TextBox
@@ -1456,6 +1467,8 @@ $Search_Map.width                = 100
 $Search_Map.height               = 25
 $Search_Map.location             = New-Object System.Drawing.Point(310,69)
 $Search_Map.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$Search_Map.BackColor            = [System.Drawing.ColorTranslator]::FromHtml("#5C9E05")
+$Search_Map.FlatStyle            = [System.Windows.Forms.FlatStyle]::Flat
 $Search_Map.Add_Click({ f_search_map })
 
 $Combo_Map                       = New-Object system.Windows.Forms.ComboBox
@@ -1469,17 +1482,21 @@ $Combo_Map.Add_TextChanged({ f_select_map })
 $Random_Map                      = New-Object system.Windows.Forms.Button
 $Random_Map.text                 = "Random Map"
 $Random_Map.width                = 100
-$Random_Map.height               = 51
+$Random_Map.height               = 50
 $Random_Map.location             = New-Object System.Drawing.Point(410,69)
 $Random_Map.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$Random_Map.BackColor            = [System.Drawing.ColorTranslator]::FromHtml("#1C7BD9")
+$Random_Map.FlatStyle            = [System.Windows.Forms.FlatStyle]::Flat
 $Random_Map.Add_Click({ f_random_map })
 
 $Add_Map                         = New-Object system.Windows.Forms.Button
 $Add_Map.text                    = "Add"
 $Add_Map.width                   = 100
-$Add_Map.height                  = 51
+$Add_Map.height                  = 50
 $Add_Map.location                = New-Object System.Drawing.Point(510,69)
 $Add_Map.Font                    = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$Add_Map.BackColor               = [System.Drawing.ColorTranslator]::FromHtml("#1C7BD9")
+$Add_Map.FlatStyle             = [System.Windows.Forms.FlatStyle]::Flat
 $Add_Map.Add_Click({ f_add_map })
 
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= #
@@ -1554,10 +1571,11 @@ $Label2.BackColor                = [System.Drawing.ColorTranslator]::FromHtml("#
 $Clear_Game                      = New-Object system.Windows.Forms.Button
 $Clear_Game.text                 = "X"
 $Clear_Game.width                = 50
-$Clear_Game.height               = 51
+$Clear_Game.height               = 50
 $Clear_Game.location             = New-Object System.Drawing.Point(10,239)
 $Clear_Game.Font                 = New-Object System.Drawing.Font('Microsoft Sans Serif',16)
 $Clear_Game.BackColor            = [System.Drawing.ColorTranslator]::FromHtml("#ff0000")
+$Clear_Game.FlatStyle            = [System.Windows.Forms.FlatStyle]::Flat
 $Clear_Game.Add_Click({ f_clear_game })
 
 $Text_Game                       = New-Object system.Windows.Forms.TextBox
@@ -1573,6 +1591,8 @@ $Search_Game.width               = 100
 $Search_Game.height              = 25
 $Search_Game.location            = New-Object System.Drawing.Point(310,239)
 $Search_Game.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$Search_Game.BackColor           = [System.Drawing.ColorTranslator]::FromHtml("#5C9E05")
+$Search_Game.FlatStyle           = [System.Windows.Forms.FlatStyle]::Flat
 $Search_Game.Add_Click({ f_search_game })
 
 $Combo_Game                      = New-Object system.Windows.Forms.ComboBox
@@ -1586,17 +1606,21 @@ $Combo_Game.Add_TextChanged({ f_select_game })
 $Random_Game                     = New-Object system.Windows.Forms.Button
 $Random_Game.text                = "Random Gametype"
 $Random_Game.width               = 100
-$Random_Game.height              = 51
+$Random_Game.height              = 50
 $Random_Game.location            = New-Object System.Drawing.Point(410,239)
 $Random_Game.Font                = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$Random_Game.BackColor           = [System.Drawing.ColorTranslator]::FromHtml("#1C7BD9")
+$Random_Game.FlatStyle           = [System.Windows.Forms.FlatStyle]::Flat
 $Random_Game.Add_Click({ f_random_game })
 
 $Add_Game                        = New-Object system.Windows.Forms.Button
 $Add_Game.text                   = "Add"
 $Add_Game.width                  = 100
-$Add_Game.height                 = 51
+$Add_Game.height                 = 50
 $Add_Game.location               = New-Object System.Drawing.Point(510,239)
 $Add_Game.Font                   = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$Add_Game.BackColor              = [System.Drawing.ColorTranslator]::FromHtml("#1C7BD9")
+$Add_Game.FlatStyle              = [System.Windows.Forms.FlatStyle]::Flat
 $Add_Game.Add_Click({ f_add_game })
 
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= #
@@ -1831,7 +1855,6 @@ $qu_3 = @($Name_Map_Q3,$Base_Map_Q3,$Disc_Map_Q3,$Name_Game_Q3,$Base_Game_Q3,$Di
 #}
 
 # variables
-
 $global:Last_Map = New-Object System.Collections.Queue
 $global:Last_Game = New-Object System.Collections.Queue
 $global:queue_size = 3
