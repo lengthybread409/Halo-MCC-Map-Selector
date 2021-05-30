@@ -9,24 +9,16 @@
 
     mcclauncher.exe will be in the same folder
     
-### Run Powershell
-    
-    When viewing the folder on explorer, click at the top left where it says "File"
-    Then click "Open Windows Powershell"
-
-    A blue screen will show. Its not the blue screen of death. This one is good!
-    
-### Setting up Powershell for the first time.
-
-    Use the example above to run powershell as an admin in the folder where you place the script.
-*Set-ExecutionPolicy Bypass -file ./MapSelect.ps1*
-
-    The Powershell scripts will work after this.
-
 ### Running the script 
     
+    Right click the file and select "Run with Powershell". Powershell is part of windows.
     
-    How to run the script, Type this (Pressing Tab will autocomplete) or run the file.
-*.\MapReName.ps1*
+    If the script gives you permission errors, you can run this command to fix it.
+*Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser*
 
-    THATS ALL FOLKS
+    WARNING! this will open your computer to other scripts. 
+
+### Running the script 
+   
+   This utility allows you to search and queue up maps and gamemodes for hosts.
+   In addition to that it can unload all your maps and gamemodes and move in the items you select.
